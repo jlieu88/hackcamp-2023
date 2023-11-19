@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
        // Copy the text inside the text field
-      navigator.clipboard.writeText(copyTextR + "." + copyTextG + "." + copyTextB);
+      navigator.clipboard.writeText(copyTextR + "," + copyTextG + "," + copyTextB);
 
       // Alert the copied text
 

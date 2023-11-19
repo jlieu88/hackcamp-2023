@@ -12,11 +12,11 @@
 
         .btn:hover {background: #eee;}
 
-        .success {color: white; background-color: dodgerblue;}
-        .info {color: dodgerblue;}
-        .warning {color: orange;}
-        .danger {color: red;}
-        .default {color: black;}
+        .save {color: white; background-color: 	mediumseagreen;}
+        .copy {color: white; background-color: dodgerblue;}
+        .warning {color: white; background-color: 	orange;}
+        .danger {color: white; background-color: 	red;}
+        .default {color: white; background-color: 	grey;}
 
         /* The switch - the box around the slider */
 .switch {
