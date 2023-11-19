@@ -1,32 +1,6 @@
-function main() {
-
-    let images = document.body.getElementsByTagName("img");
-    for (let image of images) {
-        image.addEventListener(
-            "click",
-            (event) => {
-                console.log('clicked over image!');
-            });
-    }
-
-    // Tests for rgb to hsl
-
-    // console.assert(JSON.stringify(rgb_to_hsl(255, 0, 0)) === JSON.stringify([0, 100, 50]),
-    //     "Test Case 1 failed"
-    // );
-    // console.assert(JSON.stringify(rgb_to_hsl(0, 255, 0)) === JSON.stringify([120, 100, 50]),
-    //     "Test Case 2 failed"
-    // );
-    // console.assert(JSON.stringify(rgb_to_hsl(0, 0, 255)) === JSON.stringify([240, 100, 50]),
-    //     "Test Case 3 failed"
-    // );
-    // console.assert(JSON.stringify(rgb_to_hsl(128, 128, 128)) === JSON.stringify([0, 0, 50]),
-    //     "Test Case 4 failed"
-    // );
-
-}
-
-export function rgb_to_hsl(red, green, blue) {
+(() => {
+  
+  function rgb_to_hsl(red, green, blue) {
     // Normalizing the colors to 0-1 range
     const r = red / 255;
     const g = green / 255;
@@ -67,5 +41,65 @@ export function rgb_to_hsl(red, green, blue) {
     return [hue, Math.round(100 * saturation), Math.round(100 * luminance)];
 }
 
+  const images = [];
+  const hoveredImage = -1;
 
-main();
+  function loadImages() {
+    let documentImages = document.body.getElementsByTagName("img");
+    for (let i = 0; i < documentImages.length; i ++) {
+      const image = documentImages[i];
+      const canvasData = createCanvas(image);
+      images.push({
+        element: image,
+        canvas: canvasData[0],
+        context: canvasData[1]
+      });
+
+      image.addEventListener(
+        "mousemove",
+        (event) => {
+          let rect = image.getBoundingClientRect();
+          let RGB = getRGBValue(Math.floor(event.clientX - rect.left), Math.floor(event.clientY - rect.top), images[i]);
+          //console.log(RGB);
+        });
+
+      image.addEventListener(
+        "mouseover",
+        (event) => {
+          applyFilter(images[i]);
+        });
+        
+    }
+  }
+
+  function createCanvas(imageElement) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+    canvas.width = imageElement.naturalWidth;
+    canvas.height = imageElement.naturalHeight;
+
+    context.drawImage(imageElement, 0, 0);
+    
+    return [ canvas, context ];
+  }
+
+  function getRGBValue(mouseX, mouseY, image) {
+    let c = image.context.getImageData(mouseX, mouseY, 1, 1);
+    return [ c.data[0], c.data[1], c.data[2], c.data[3] ];
+  }
+
+  function applyFilter(image) {
+    for (let y = 0; y < image.canvas.height; y ++) {
+      for (let x = 0; x < image.canvas.width; x ++) {
+        var p = image.context.getImageData(x, y, 1, 1);
+        p.data[0] /= 2;
+        p.data[1] /= 2;
+        p.data[2] /= 2;
+        image.context.putImageData(p, x, y);
+      } 
+    }
+    image.element.src = image.canvas.toDataURL();
+  } 
+
+  loadImages();
+})();

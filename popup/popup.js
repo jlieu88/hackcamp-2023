@@ -15,4 +15,20 @@ async function onOpen() {
     });
 }
 
+/*function enable() {
+  chrome.scripting
+    .executeScript({
+      target : { tabId : tab.id },
+      files : [ './main/script.js' ],
+    });
+}
+
+function disable() {
+  chrome.scripting
+    .executeScript({
+      target : { tabId : tab.id },
+      files : [ './main/disable.js' ],
+    });
+}*/
+
 onOpen();

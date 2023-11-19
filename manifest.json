@@ -7,6 +7,6 @@
     "default_popup": "popup/popup.html"
   },
   "permissions": [
-    "scripting", "activeTab"
+    "scripting", "activeTab", "nativeMessaging"
   ]
 }
