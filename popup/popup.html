@@ -1,18 +1,34 @@
 <html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Link CSS to HTML</title>
+</head>
+
+
+
 <body>
+<span style="font-family: 'Century Gothic'; ">
 <script src="popup.js"></script>
+
 <h1>Hi</h1>
 
 
-
+<label for="Enabled"> <b>Enabled:</b></label>
+      <label class="switch">
+  <input type="checkbox" id="Enabled">
+  <span class="slider round"></span>
+</label> <br><br>
 
 </textarea>
 
 <label for="R"> R:</label>
-<input type="number" id="R" name="R" value="255" readonly><br><br>
+<input type="number" id="R" name="R" value="255" readonly> <br>
 
 <label for="G">G:</label>
-<input type="number" id="G" name="G" value="225" readonly><br><br>
+<input type="number" id="G" name="G" value="225" readonly><br>
 
 <label for="B">B:</label>
 <input type="number" id="B" name="B" value="255" readonly><br><br>
@@ -20,18 +36,23 @@
 <label for="SimpleColor">Simple Color:</label>
 <input type="text" id="SimpleColor" name="SimpleColor" value="White" readonly><br><br>
 
+    <button id="copyR" onclick="myFunction1()">Copy</button> <br>
 </textarea>
 
-<p id="demo"></p>
+
+    <p id="demo1"></p>
 
 
+<button class = "btn success" id = "saveColor" onclick="submitConfirm()">Save Color</button> <br>
 
-<button id = "saveColor" onclick="submitConfirm()">Save Color</button>
+    <p id="demo5"></p>
+</span>
 
-<script>
 
-</script>
 
 
 </body>
 </html>
+
+
+
