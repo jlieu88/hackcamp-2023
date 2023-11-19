@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Hackcamp 2023 Project",
+  "description": "does something...",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "scripting", "activeTab"
+  ]
+}
