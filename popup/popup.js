@@ -30,5 +30,11 @@ function disable() {
       files : [ './main/disable.js' ],
     });
 }*/
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("saveColor").addEventListener("click", function() {
+        var input = document.getElementById("SimpleColor").value;
+        document.getElementById("demo").innerHTML = "The color " + input + " has been saved.";
+    });
+})
 
 onOpen();
