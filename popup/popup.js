@@ -14,25 +14,18 @@ async function onOpen() {
     });
 }
 
-/*function enable() {
-  chrome.scripting
-    .executeScript({
-      target : { tabId : tab.id },
-      files : [ './main/script.js' ],
-    });
-}
-
-function disable() {
-  chrome.scripting
-    .executeScript({
-      target : { tabId : tab.id },
-      files : [ './main/disable.js' ],
-    });
-}*/
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("saveColor").addEventListener("click", function() {
         var input = document.getElementById("SimpleColor").value;
         document.getElementById("demo5").innerHTML = "The color " + input + " has been saved.";
+    });
+
+    document.getElementById('enabled').addEventListener('click', () => {
+      if (document.getElementById('enabled').checked) {
+        enable();
+      } else {
+        disable();
+      }
     });
 })
 
@@ -56,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 })
 
-
+onOpen();
 
 /*
 function myFunction1() {
@@ -76,3 +69,7 @@ function myFunction1() {
 
 onOpen();
 */
+
+/*document.getElementById('Enabled').addEventListener('click', () => {
+  console.log(document.getElementById('Enabled').checked);
+});*/
