@@ -80,6 +80,7 @@ function init() {
     div.style.borderWidth = '3px';
     div.style.borderColor = 'rgb(255,0,0)';
     div.style.borderStyle = 'solid';
+    div.style.fontSize = '15px';
     document.body.appendChild(div);
   }
 
