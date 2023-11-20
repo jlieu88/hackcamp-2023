@@ -10,9 +10,9 @@
     "scripting", "activeTab", "nativeMessaging"
   ],
   "icons": {
-    "16": "codebuddy_logo16.png",
-    "32": "codebuddy_logo32.png",
-    "48": "codebuddy_logo48.png",
-    "128": "codebuddy_logo128.png"
-  },
+    "32": "img/codebuddy_logo32.png",
+    "16": "img/codebuddy_logo16.png",
+    "48": "img/codebuddy_logo48.png",
+    "128": "img/codebuddy_logo128.png"
+  }
 }
